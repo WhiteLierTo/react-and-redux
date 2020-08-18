@@ -1,0 +1,9 @@
+@import "~antd/dist/antd.css";
+
+.inputSty {
+  padding: 15px;
+}
+.listSty {
+  width: 300px;
+  margin-left: 15px;
+}
