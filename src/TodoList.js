@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import store from "./store";
 import { TodoListUI } from "./TodoListUI";
+import axios from "axios";
 import {
+  getInitList,
   getInputChangeAction,
   getAddItemAction,
   getDeleteItemAction,
@@ -17,6 +19,12 @@ export default class Todo extends Component {
     this.handleStoreChange = this.handleStoreChange.bind(this);
 
     store.subscribe(this.handleStoreChange);
+  }
+
+  async componentDidMount() {
+    const data = await axios.post("/api/draft/list");
+    const action = getInitList(data);
+    store.dispatch(action);
   }
 
   render() {

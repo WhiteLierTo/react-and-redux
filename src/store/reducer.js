@@ -2,6 +2,7 @@ import {
   CHANGE_INPUT_VALUE,
   ADD_TODO_ITEM,
   DELETE_TODO_ITEM,
+  // LIST_DOTO_ITEM,
 } from "./actionType";
 
 const defaultState = {
@@ -11,6 +12,11 @@ const defaultState = {
 
 // reducer可以接收state,但绝不能修改state
 export default (state = defaultState, action) => {
+  /* if (action.type === LIST_DOTO_ITEM) {
+    const newState = JSON.parse(JSON.stringify(state));
+    newstate.list = action.data;
+    return newState;
+  }*/
   if (action.type === CHANGE_INPUT_VALUE) {
     const newState = JSON.parse(JSON.stringify(state));
     newState.inputValue = action.value;
